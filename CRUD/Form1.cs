@@ -54,6 +54,53 @@ namespace CRUD
             }
         }
 
+        private void tsbPesquisa_Click(object sender, EventArgs e)
+        {
+            strSql = "select * from Funcionarios where Id=@Id";
+            sqlCon = new SqlConnection(strCon);
+            SqlCommand comando = new SqlCommand(strSql, sqlCon);
+
+            comando.Parameters.Add("@Id", SqlDbType.Int).Value = tstIdBuscar.Text;
+
+            try
+            {
+                if (tstIdBuscar.Text == string.Empty)
+                {
+                    throw new Exception("Você precisa executar um Id! ");
+                }
+
+                sqlCon.Open();
+
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.HasRows == false)
+                {
+                    throw new Exception("Id não cadastrado! ");
+                }
+
+                dr.Read();
+
+                txtId.Text = Convert.ToString(dr["Id"]);
+                txtNome.Text = Convert.ToString(dr["Nome"]);
+                txtEndereco.Text = Convert.ToString(dr["Endereco"]);
+                mskCEP.Text = Convert.ToString(dr["CEP"]);
+                txtBairro.Text = Convert.ToString(dr["Bairro"]);
+                txtCidade.Text = Convert.ToString(dr["Cidade"]);
+                txtUF.Text = Convert.ToString(dr["UF"]);
+                mskTelefone.Text = Convert.ToString(dr["Telefone"]);
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 

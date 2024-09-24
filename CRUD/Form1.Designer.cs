@@ -38,7 +38,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tstIdBuscar = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbPesquisa = new System.Windows.Forms.ToolStripButton();
+            this.tstBuscar = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.tstIdBuscar,
-            this.tsbPesquisa});
+            this.tstBuscar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(558, 25);
@@ -146,14 +146,15 @@
             this.tstIdBuscar.Name = "tstIdBuscar";
             this.tstIdBuscar.Size = new System.Drawing.Size(100, 25);
             // 
-            // tsbPesquisa
+            // tstBuscar
             // 
-            this.tsbPesquisa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPesquisa.Image = ((System.Drawing.Image)(resources.GetObject("tsbPesquisa.Image")));
-            this.tsbPesquisa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPesquisa.Name = "tsbPesquisa";
-            this.tsbPesquisa.Size = new System.Drawing.Size(23, 22);
-            this.tsbPesquisa.Text = "Pesquisa";
+            this.tstBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tstBuscar.Image = ((System.Drawing.Image)(resources.GetObject("tstBuscar.Image")));
+            this.tstBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tstBuscar.Name = "tstBuscar";
+            this.tstBuscar.Size = new System.Drawing.Size(23, 22);
+            this.tstBuscar.Text = "Pesquisa";
+            this.tstBuscar.Click += new System.EventHandler(this.tsbPesquisa_Click);
             // 
             // label1
             // 
@@ -365,7 +366,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox tstIdBuscar;
-        private System.Windows.Forms.ToolStripButton tsbPesquisa;
+        private System.Windows.Forms.ToolStripButton tstBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label2;
