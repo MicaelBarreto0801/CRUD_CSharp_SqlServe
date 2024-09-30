@@ -119,6 +119,7 @@
             this.tsbAlterar.Name = "tsbAlterar";
             this.tsbAlterar.Size = new System.Drawing.Size(23, 22);
             this.tsbAlterar.Text = "Alterar";
+            this.tsbAlterar.Click += new System.EventHandler(this.tsbAlterar_Click);
             // 
             // tsbExcluir
             // 

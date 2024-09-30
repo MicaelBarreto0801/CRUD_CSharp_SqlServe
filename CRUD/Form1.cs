@@ -101,6 +101,41 @@ namespace CRUD
             }
         }
 
+        private void tsbAlterar_Click(object sender, EventArgs e)
+        {
+
+            strSql = "update Funcionarios set Id = @Id, Nome = @Nome, Endereco = @Endereco, CEP = @CEP, Bairro = @Bairro, Cidade = @Cidade, UF = @UF, Telefone = @Telefone where Id = @IdBuscar";
+            sqlCon = new SqlConnection(strCon);
+            SqlCommand comando = new SqlCommand(strSql, sqlCon);
+
+            comando.Parameters.Add("@IdBuscar", SqlDbType.Int).Value = tstIdBuscar.Text;
+
+            comando.Parameters.Add("@Id", SqlDbType.Int).Value = txtId.Text;
+            comando.Parameters.Add("@Nome", SqlDbType.VarChar).Value = txtNome.Text;
+            comando.Parameters.Add("@Endereco", SqlDbType.VarChar).Value = txtEndereco.Text;
+            comando.Parameters.Add("@CEP", SqlDbType.VarChar).Value = mskCEP.Text;
+            comando.Parameters.Add("@Bairro", SqlDbType.VarChar).Value = txtBairro.Text;
+            comando.Parameters.Add("@Cidade", SqlDbType.VarChar).Value = txtCidade.Text;
+            comando.Parameters.Add("@UF", SqlDbType.VarChar).Value = txtUF.Text;
+            comando.Parameters.Add("@Telefone", SqlDbType.VarChar).Value = mskTelefone.Text;
+
+            try
+            {
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Cadastro atualizado com sucesso! ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlCon.Close();
+            }
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -121,6 +156,6 @@ namespace CRUD
 
         }
 
-
+       
     }
 }
