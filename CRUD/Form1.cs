@@ -136,6 +136,37 @@ namespace CRUD
 
         }
 
+        private void tsbExcluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente excluir este funcionário?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                MessageBox.Show("Operação Cancelada!");
+            }
+            else
+            {
+                strSql = "delete from Funcionarios where Id = @Id";
+                sqlCon = new SqlConnection(strCon);
+                SqlCommand comando = new SqlCommand(strSql, sqlCon);
+
+                comando.Parameters.Add("@id", SqlDbType.Int).Value = txtId.Text;
+
+                try
+                {
+                    sqlCon.Open();
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Funcionário deletado com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    sqlCon.Close();
+                }
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
